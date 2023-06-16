@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   isCharacter.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isojo-go <isojo-go@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/16 23:36:36 by isojo-go          #+#    #+#             */
-/*   Updated: 2023/06/16 23:36:37 by isojo-go         ###   ########.fr       */
+/*   Created: 2023/06/16 23:36:18 by isojo-go          #+#    #+#             */
+/*   Updated: 2023/06/16 23:36:18 by isojo-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/main.hpp"
+#include "../inc/ScalarConverter.hpp"
 
-static void	printRedLine(const std::string& str)
+bool	isCharacter(const std::string& str)
 {
-	std::cout << "\033[0;31m" << str << "\033[0;39m" << std::endl;
-}
-
-int main(int argc, char **argv)
-{
-	if (argc == 2)
-		ScalarConverter::convert(argv[1]);
-	else
-		printRedLine("Syntax Error: ./bin/convert XX");
-	return (0);
+	if (str.length() == 1 && !isdigit(str[0]) && str[0] >= 32 && str[0] <= 126)
+		return (true);
+	return (false);
 }
