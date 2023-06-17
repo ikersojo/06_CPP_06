@@ -6,7 +6,7 @@
 /*   By: isojo-go <isojo-go@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 23:36:12 by isojo-go          #+#    #+#             */
-/*   Updated: 2023/06/16 23:36:18 by isojo-go         ###   ########.fr       */
+/*   Updated: 2023/06/17 22:18:32 by isojo-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@
 	class ScalarConverter
 	{
 		public:
-			ScalarConverter(void);
-			ScalarConverter(const ScalarConverter& obj);
 			~ScalarConverter(void);
-			ScalarConverter&	operator=(const ScalarConverter& rhs);
-
 			static void		convert(const std::string& str);
 
 		private:
+			ScalarConverter(void);
+			ScalarConverter(const ScalarConverter& obj);
+			ScalarConverter&	operator=(const ScalarConverter& rhs);
+
 			static char		_c;
 			static int		_i;
 			static float	_f;
