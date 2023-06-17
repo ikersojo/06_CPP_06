@@ -6,7 +6,7 @@
 #    By: isojo-go <isojo-go@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/16 23:36:39 by isojo-go          #+#    #+#              #
-#    Updated: 2023/06/17 22:41:20 by isojo-go         ###   ########.fr        #
+#    Updated: 2023/06/17 23:28:00 by isojo-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,11 @@ OBJDIR		=	obj
 BINDIR		=	bin
 
 ## Libraries / Classes:
-LIBCLASS	=	./classes
-LIBS		=	$(LIBCLASS)/libclasses.a
+LIBCLASS	=
+LIBS		=
 
 ## Header Files (dedicated and from libraries):
-HEADERS	=	-I ./inc -I $(LIBCLASS)/inc
+HEADERS	=	-I ./inc
 
 ## Source / Object Files:
 SRC		=	$(wildcard $(SRCDIR)/*$(EXT))
@@ -60,7 +60,7 @@ WHITE = \033[0;97m
 
 all:		$(NAME)
 
-$(NAME):	libclasses $(OBJ)
+$(NAME):	$(OBJ)
 			@mkdir -p $(BINDIR)
 			@$(CC) $(DEBUG) $(CFLAGS) $(OBJ) $(LIBS) $(HEADERS) -o ./$(BINDIR)/$(NAME)
 			@echo "$(GREEN)$(NAME) compiled!$(DEF_COLOR)"
@@ -71,16 +71,11 @@ $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
 			@$(CC) $(DEBUG) $(CFLAGS) -o $@ -c $< $(HEADERS)
 			@echo "$(GREEN)Done!$(DEF_COLOR)"
 
-libclasses:
-			@$(MAKE) -C $(LIBCLASS)
-
 clean:
 			@$(RM) $(OBJ) $(OBJDIR)
 			@echo "$(YELLOW)$(NAME) object files removed!$(DEF_COLOR)"
-			@$(MAKE) -C $(LIBCLASS) clean
 
 fclean:
-			@$(MAKE) -C $(LIBCLASS) fclean
 			@if [ -d $(OBJDIR) ]; then \
 				$(RM) $(OBJ) $(OBJDIR); \
 				echo "$(YELLOW)$(NAME) object files removed!$(DEF_COLOR)"; \
@@ -90,4 +85,4 @@ fclean:
 
 re:			fclean all
 
-.PHONY:		all clean fclean re libclasses
+.PHONY:		all clean fclean re
