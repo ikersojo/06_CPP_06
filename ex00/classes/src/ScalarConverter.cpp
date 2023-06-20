@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isojo-go <isojo-go@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: isojo-go <isojo-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 23:36:25 by isojo-go          #+#    #+#             */
-/*   Updated: 2023/06/16 23:36:34 by isojo-go         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:57:33 by isojo-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void	ScalarConverter::print(void)
 	if ((_d >= std::numeric_limits<int>::min()) && (_d <= std::numeric_limits<int>::max()))
 		std::cout << "int:    " << ScalarConverter::_i << std::endl;
 	else
-		std::cout << "char:   " << "impossible" << std::endl;
+		std::cout << "int:    " << "impossible" << std::endl;
 
 	std::cout << "float:  " << std::fixed << std::setprecision(1) << ScalarConverter::_f << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << ScalarConverter::_d << std::endl;
