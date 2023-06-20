@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   isNumber.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isojo-go <isojo-go@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: isojo-go <isojo-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 23:36:21 by isojo-go          #+#    #+#             */
-/*   Updated: 2023/06/16 23:36:22 by isojo-go         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:06:20 by isojo-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ bool	isPseudo(const std::string& str)
 {
 	if (str == "inf" || str == "-inf" || str == "+inf" || str == "nan"
 		|| str == "inff" || str == "-inff" || str == "+inff" || str == "nanf")
+	{
 		return (true);
+	}
 	return (false);
 }

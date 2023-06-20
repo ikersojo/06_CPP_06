@@ -6,7 +6,7 @@
 /*   By: isojo-go <isojo-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 23:36:25 by isojo-go          #+#    #+#             */
-/*   Updated: 2023/06/20 15:57:33 by isojo-go         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:09:07 by isojo-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,10 @@ void	ScalarConverter::print(void)
 {
 	if (_d <= 126 && _d >= 32)
 		std::cout << "char:   '" << static_cast<char>(ScalarConverter::_c) << "'"<< std::endl;
-	else
+	else if (_d <= 127 && _d >= -128)
 		std::cout << "char:   " << "Non Displayable" << std::endl;
+	else
+		std::cout << "char:   " << "impossible" << std::endl;
 
 	if ((_d >= std::numeric_limits<int>::min()) && (_d <= std::numeric_limits<int>::max()))
 		std::cout << "int:    " << ScalarConverter::_i << std::endl;
@@ -149,11 +151,11 @@ void	ScalarConverter::printPseudo(const std::string& str)
 
 	if (str == "inff")
 		strOut = "inf";
-	if (str == "-inff")
+	else if (str == "-inff")
 		strOut = "-inf";
-	if (str == "+inff")
+	else if (str == "+inff")
 		strOut = "+inf";
-	if (str == "nanf")
+	else if (str == "nanf")
 		strOut = "nan";
 	else
 		strOut = str;
